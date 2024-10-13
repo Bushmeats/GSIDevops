@@ -1,0 +1,66 @@
+{
+   "antivirusEngine":{
+      "enforcementLevel":"real_time",
+      "scanAfterDefinitionUpdate":true,
+      "scanArchives":true,
+      "maximumOnDemandScanThreads":2,
+      "behaviorMonitoring":"enabled",
+      "exclusionsMergePolicy":"admin_only",
+      "exclusions":[
+         {
+            "$type":"excludedPath",
+            "isDirectory":true,
+            "path":"/dev/"
+         },
+         {
+            "$type":"excludedPath",
+            "isDirectory":true,
+            "path":"/proc/"
+         },
+         {
+            "$type":"excludedPath",
+            "isDirectory":true,
+            "path":"/sys/"
+         }
+      ],
+      "allowedThreats":[
+         "<EXAMPLE DO NOT USE>EICAR-Test-File (not a virus)"
+      ],
+      "disallowedThreatActions":[
+         "allow",
+         "restore"
+      ],
+      "nonExecMountPolicy":"unmute",
+      "unmonitoredFilesystems": ["nfs"],
+      "enableFileHashComputation" :false,
+      "threatTypeSettingsMergePolicy":"admin_only",
+      "threatTypeSettings":[
+         {
+            "key":"potentially_unwanted_application",
+            "value":"block"
+         },
+         {
+            "key":"archive_bomb",
+            "value":"audit"
+         }
+      ],
+      "scanResultsRetentionDays" :"90",
+      "scanHistoryMaximumItems" :"10000"
+   },
+   "cloudService":{
+      "enabled":true,
+      "diagnosticLevel": "required",
+      "cloudBlockLevel": "high",
+      "automaticSampleSubmissionConsent":"safe",
+      "automaticDefinitionUpdateEnabled":true
+   },
+  "edr": {
+  "groupIds":"Policy",
+  "tags": [
+            {
+            "key": "GROUP",
+            "value": "MDE-Management"
+            }
+          ]
+      }
+}
